@@ -1,0 +1,11 @@
+1 处理特殊字符，如:' ', '\n', '\t', '\r', '*'
+2 保留必须字符，如:"'"
+3 检查.split()
+4 直接对split()后的内容跑cbow，并在字典内增加生词
+
+data structure:
+vocab
+{
+'size':int()
+'words':int(id)
+}
