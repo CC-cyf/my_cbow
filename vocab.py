@@ -4,7 +4,7 @@ class vocab:
 	vocab_table={}
 	#在词典内增加一个词
 	def append(self,word):
-		self.vocab[word] = self.index
+		self.vocab_table[word] = self.index
 		self.index += self.index
 
 	#将词典保存到.json文件中
