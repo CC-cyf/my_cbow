@@ -5,7 +5,7 @@ class vocab:
 	#在词典内增加一个词
 	def append(self,word):
 		self.vocab_table[word] = self.index
-		self.index += self.index
+		self.index += 1
 
 	#将词典保存到.json文件中
 	def save_to_file(self):
@@ -18,5 +18,5 @@ class vocab:
 			context=fileread.read()
 		words=context.replace('*','').split()
 		for each in words:
-			if each not in words:
+			if each not in self.vocab_table:
 				self.append(each)
