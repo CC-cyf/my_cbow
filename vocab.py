@@ -13,10 +13,15 @@ class vocab:
 			json.dump(self.vocab_table,vt)
 		print('The vocaburary table has been saved as "vocab_table.json"')
 
+	def get_id(self,word):
+		return self.vocab_table[word]
+
 	def __init__(self,filename):
 		with open(filename) as fileread:
 			context=fileread.read()
-		words=context.replace('*','').split()
+		words=context.lower().replace('*',' ').replace('"',' ').replace('-',' ').replace('\\',' ')\
+		.replace('.',' ').replace(':',' ').replace(',',' ').replace('!',' ').replace('?',' ')\
+		.replace('(',' ').replace(')',' ').replace('`',' ').split()
 		for each in words:
 			if each not in self.vocab_table:
 				self.append(each)
