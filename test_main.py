@@ -1,3 +1,3 @@
 from vocab import vocab
-v1=vocab('alice')
-v1.save_to_file()
+v2=vocab('alice')
+v2.save_to_file()

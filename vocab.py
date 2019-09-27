@@ -1,6 +1,7 @@
 import json
 class vocab:
 	index=0
+	article={}
 	vocab_table={}
 	#在词典内增加一个词
 	def append(self,word):
@@ -11,7 +12,10 @@ class vocab:
 	def save_to_file(self):
 		with open('vocab_table.json','w') as vt:
 			json.dump(self.vocab_table,vt)
-		print('The vocaburary table has been saved as "vocab_table.json"')
+			print('The vocaburary table has been saved as "vocab_table.json"')
+		with open('article.json','w') as art:
+			json.dump(self.article,art)
+			print('The article table has been saved as "article.json"')
 
 	def get_id(self,word):
 		return self.vocab_table[word]
@@ -19,9 +23,9 @@ class vocab:
 	def __init__(self,filename):
 		with open(filename) as fileread:
 			context=fileread.read()
-		words=context.lower().replace('*',' ').replace('"',' ').replace('-',' ').replace('\\',' ')\
+		self.article=context.lower().replace('*',' ').replace('"',' ').replace('-',' ').replace('\\',' ')\
 		.replace('.',' ').replace(':',' ').replace(',',' ').replace('!',' ').replace('?',' ')\
 		.replace("' ",' ').replace(" '",' ').replace('(',' ').replace(')',' ').replace('`',' ').split()
-		for each in words:
+		for each in self.article:
 			if each not in self.vocab_table:
 				self.append(each)
