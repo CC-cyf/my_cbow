@@ -21,7 +21,7 @@ class vocab:
 			context=fileread.read()
 		words=context.lower().replace('*',' ').replace('"',' ').replace('-',' ').replace('\\',' ')\
 		.replace('.',' ').replace(':',' ').replace(',',' ').replace('!',' ').replace('?',' ')\
-		.replace('(',' ').replace(')',' ').replace('`',' ').split()
+		.replace("' ",' ').replace(" '",' ').replace('(',' ').replace(')',' ').replace('`',' ').split()
 		for each in words:
 			if each not in self.vocab_table:
 				self.append(each)
