@@ -1,11 +1,19 @@
 import json
+import numpy as np
+
+class wordvec:
+	id=0
+	vector=np.random.random((1,100))
+	def __init__(self,id):
+		self.id=id
+
 class vocab:
 	index=0
 	article={}
 	vocab_table={}
 	#在词典内增加一个词
 	def append(self,word):
-		self.vocab_table[word] = self.index
+		self.vocab_table[word] = wordvec(self.index)
 		self.index += 1
 
 	#将词典保存到.json文件中

@@ -1,3 +1,3 @@
 from vocab import vocab
-v2=vocab('alice')
-v2.save_to_file()
+#取得初始化向量，维度为100
+vt=vocab('alice')
