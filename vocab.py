@@ -3,7 +3,7 @@ import numpy as np
 
 class wordvec:
 	id=0
-	vector=np.random.random((1,100))
+	vector=(np.random.random((1,100))*2-1)
 	def __init__(self,id):
 		self.id=id
 
