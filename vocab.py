@@ -12,6 +12,7 @@ class vocab:
 	article_len=0
 	article=[]
 	vocab_table={}
+	output_matrix=np.zeros(1)
 	#在词典内增加一个词
 	def append(self, word):
 		self.vocab_table[word] = wordvec(self.index)
@@ -54,6 +55,9 @@ class vocab:
 			vector += self.vocab_table[each_word].vector
 		vector = vector/windowed_word.__len__()
 		return vector
+
+	def init_output_matrix(self):
+		self.output_matrix=np.random.random((self.index,100))
 
 	def __init__(self, filename):
 		with open(filename) as fileread:
