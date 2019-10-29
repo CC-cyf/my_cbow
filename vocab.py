@@ -8,15 +8,15 @@ class wordvec:
 		self.id=id
 
 class vocab:
-	index=0
+	vocab_size=0
 	article_len=0
 	article=[]
 	vocab_table={}
 	output_matrix=np.zeros(1)
 	#在词典内增加一个词
 	def append(self, word):
-		self.vocab_table[word] = wordvec(self.index)
-		self.index += 1
+		self.vocab_table[word] = wordvec(self.vocab_size)
+		self.vocab_size += 1
 
 	#将词典保存到.json文件中
 	def save_article(self):
@@ -56,9 +56,6 @@ class vocab:
 		vector = vector/windowed_word.__len__()
 		return vector
 
-	def init_output_matrix(self):
-		self.output_matrix=np.random.random((self.index,100))
-
 	def __init__(self, filename):
 		with open(filename) as fileread:
 			context=fileread.read()
@@ -69,4 +66,5 @@ class vocab:
 			if each not in self.vocab_table:
 				self.append(each)
 		self.article_len=self.article.__len__()
+		self.output_matrix=np.random.random((100,self.vocab_size))
 
